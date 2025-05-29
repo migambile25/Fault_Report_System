@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report a Fault</title>
+</head>
+<body>
+  <h1>Report a Fault</h1>
+  <form id="complaintForm">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="text" name="contact" placeholder="Phone or Email" required><br>
+    <textarea name="description" placeholder="Describe the issue..." required></textarea><br>
+    <button type="submit">Submit Complaint</button>
+  </form>
+
+  <p id="statusMessage"></p>
+
+  <script>
+    document.getElementById("complaintForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        contact: form.contact.value,
+        description: form.description.value,
+      };
+
+      const res = await fetch('/api/complaints', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const message = await res.text();
+      document.getElementById("statusMessage").textContent = message;
+      form.reset();
+    });
+  </script>
+</body>
+</html>

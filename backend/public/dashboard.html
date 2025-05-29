@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <h1>Submitted Complaints</h1>
+  <div id="complaints"></div>
+
+  <script>
+    async function fetchComplaints() {
+      const token = localStorage.getItem('token');
+      const res = await fetch('/api/complaints', {
+        headers: {
+          'Authorization': 'Bearer ' + token
+        }
+      });
+
+      const complaints = await res.json();
+      const container = document.getElementById('complaints');
+      container.innerHTML = '';
+
+      complaints.forEach(c => {
+        container.innerHTML += `
+          <div style="border: 1px solid #ccc; margin: 10px; padding: 10px;">
+            <strong>${c.name}</strong> (${c.contact})<br>
+            <p>${c.description}</p>
+            <small>${new Date(c.created_at).toLocaleString()}</small>
+          </div>
+        `;
+      });
+    }
+
+    fetchComplaints();
+  </script>
+</body>
+</html>
