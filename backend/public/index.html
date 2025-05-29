@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Report a Fault</title>
+  <title>MUST Report Faulty Infrastructure</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-  <h1>Report a Fault</h1>
-  <form id="complaintForm">
-    <input type="text" name="name" placeholder="Your Name" required><br>
-    <input type="text" name="contact" placeholder="Phone or Email" required><br>
-    <textarea name="description" placeholder="Describe the issue..." required></textarea><br>
-    <button type="submit">Submit Complaint</button>
-  </form>
 
-  <p id="statusMessage"></p>
+<body>
+  <div class="container">
+    <h1 class="main-title">Mbeya University of Science and Technology Report Fault
+      Management system</h1>
+    <form id="complaintForm">
+      <input type="text" name="name" placeholder="Your Name" required><br>
+      <input type="text" name="contact" placeholder="Phone or Email" required><br>
+      <textarea name="description" placeholder="Describe the issue..." required></textarea><br>
+      <button type="submit">Submit Complaint</button>
+    </form>
+
+    <p id="statusMessage"></p>
+  </div>
 
   <script>
     document.getElementById("complaintForm").addEventListener("submit", async function (e) {
@@ -39,4 +45,5 @@
     });
   </script>
 </body>
+
 </html>

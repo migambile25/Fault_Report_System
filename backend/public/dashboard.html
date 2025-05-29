@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
+  <title>MUST Report Faulty Infrastructure - Admin Dashboard </title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
-  <h1>Submitted Complaints</h1>
-  <div id="complaints"></div>
+  <div class="container">
+    <h1 class="main-title">Mbeya University of Science and Technology Report Fault Management System - Admin Dashboard
+    </h1>
+    <p>Welcome, Admin! Here you can view all submitted complaints.</p>
+    <!-- <p><a href="admin-login.html">Logout</a></p> -->
+    <h1>Submitted Complaints</h1>
+    <div id="complaints"></div>
+  </div>
 
   <script>
     async function fetchComplaints() {
@@ -36,4 +45,5 @@
     fetchComplaints();
   </script>
 </body>
+
 </html>
